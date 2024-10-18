@@ -15,9 +15,9 @@ import { FooterComponent } from './sections/footer/footer.component';
 const routes: Route[] = [
   {
     path: "",
-    // component: MainComponent
+    component: MainComponent
     // component: CompletedComponent
-    component: UsersComponent
+    // component: UsersComponent
   },
   {
     path: "completed",

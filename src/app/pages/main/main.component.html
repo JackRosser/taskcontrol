@@ -1,1 +1,38 @@
-<p>main works</p>
+<main
+  *ngIf="allUsersAndTasks.length > 0"
+  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 p-2"
+>
+  <article
+    *ngFor="let user of allUsersAndTasks"
+    class="border flex flex-col items-start justify-between p-5"
+  >
+    <div class="flex items-center">
+      <h2 class="flex gap-2 text-2xl">
+        <span>{{ user.firstName }}</span
+        ><span>{{ user.lastName }}</span>
+      </h2>
+      <img
+        [src]="user.image"
+        [alt]="user.id + ' image'"
+        class="max-h-[200px] lg:max-h-[150px]"
+      />
+    </div>
+    <div>
+      <ul
+        *ngIf="user.tasks && user.tasks.length > 0"
+        class="border border-black"
+      >
+        <li
+          *ngFor="let task of user.tasks"
+          [ngClass]="task.completed ? 'green' : 'red'"
+        >
+          <label>
+            <input type="checkbox" [(ngModel)]="task.completed" />
+          </label>
+          {{ task.todo }} -
+        </li>
+      </ul>
+      <p *ngIf="!user.tasks || user.tasks.length === 0">No tasks available</p>
+    </div>
+  </article>
+</main>
