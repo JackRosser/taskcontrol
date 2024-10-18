@@ -9,11 +9,15 @@ import { UsersComponent } from './pages/users/users.component';
 import { Route, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
+import { NavbarComponent } from './sections/navbar/navbar.component';
+import { FooterComponent } from './sections/footer/footer.component';
 
 const routes: Route[] = [
   {
     path: "",
-    component: MainComponent
+    // component: MainComponent
+    // component: CompletedComponent
+    component: UsersComponent
   },
   {
     path: "completed",
@@ -30,7 +34,9 @@ const routes: Route[] = [
     AppComponent,
     MainComponent,
     CompletedComponent,
-    UsersComponent
+    UsersComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
