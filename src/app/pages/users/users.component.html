@@ -10,8 +10,10 @@
           class="border border-black p-2"
         >
           <div>
-            <h2>{{ user.firstName }} {{ user.lastName }}</h2>
-            <ul>
+            <h2 class="text-xl mb-2">
+              {{ user.firstName }} {{ user.lastName }}
+            </h2>
+            <ul class="flex flex-col gap-2">
               <li
                 *ngFor="let task of user.tasks"
                 [ngClass]="task.completed ? 'green' : 'red'"
