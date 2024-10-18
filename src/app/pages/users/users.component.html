@@ -1,18 +1,23 @@
-<main *ngIf="allUsersAndTasks.length > 0" class="py-5">
-  <section class="border m-auto md:w-3/4 lg:w-1/2 overflow-auto mt-5">
+<main *ngIf="allUsersAndTasks.length > 0">
+  <section class="m-auto md:w-3/4 lg:w-1/2 p-5">
     <app-search></app-search>
-    <ul>
+    <ul class="flex flex-col p-5 gap-5 mt-5">
+      <!-- ng container è una chicca che ho scoperto la settimana scorsa, aiuta tantissimo quando hai
+       ngIf e ngFor insieme, non viene renderizzata -->
       <ng-container *ngFor="let user of allUsersAndTasks">
-        <li *ngIf="user.tasks && user.tasks.length > 0">
+        <li
+          *ngIf="user.tasks && user.tasks.length > 0"
+          class="border border-black p-2"
+        >
           <div>
             <h2>{{ user.firstName }} {{ user.lastName }}</h2>
             <ul>
-              <li *ngFor="let task of user.tasks">
+              <li
+                *ngFor="let task of user.tasks"
+                [ngClass]="task.completed ? 'green' : 'red'"
+              >
                 {{ task.todo }} -
                 <input type="checkbox" [(ngModel)]="task.completed" />
-                <span [ngClass]="task.completed ? 'completed' : 'pending'">
-                  {{ task.completed ? "Completed" : "Pending" }}
-                </span>
               </li>
             </ul>
           </div>
