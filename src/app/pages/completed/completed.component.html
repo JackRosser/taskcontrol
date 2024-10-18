@@ -1,33 +1,24 @@
 <main>
   <section class="m-auto md:w-3/4 lg:w-1/2 p-5 flex flex-col items-center">
-    <h1 class="text-3xl">Incarichi Completati</h1>
-    <ul
+    <h1 class="text-[5rem]">Incarichi Completati</h1>
+    <div
       *ngIf="allUsersAndTasks.length > 0"
-      class="flex flex-col p-5 gap-5 mt-5"
+      class="flex flex-col p-5 mt-5 bg-green-500"
     >
-      <ng-container *ngFor="let user of allUsersAndTasks">
-        <li
-          *ngIf="user.tasks && user.tasks.length > 0"
-          class="border p-2 bg-yellow-200"
-        >
-          <div>
-            <h2 class="text-xl mb-2">
-              {{ user.firstName }} {{ user.lastName }}
-            </h2>
-            <ul class="flex flex-col gap-2">
-              <li
-                *ngFor="let task of user.tasks"
-                [ngClass]="task.completed ? 'green' : 'hidden'"
-                class="border border-black"
-              >
-                <ng-container *ngIf="task.completed">
-                  {{ task.todo }}
-                </ng-container>
-              </li>
-            </ul>
+      <div *ngFor="let user of allUsersAndTasks">
+        <div *ngFor="let task of user.tasks">
+          <div *ngIf="task.completed" class="mb-5 relative">
+            <div
+              class="absolute z-10 -bottom-3 -right-3 italic text-[0.8rem] bg-slate-400 p-1 rounded-xl"
+            >
+              {{ user.firstName }}
+            </div>
+            <div class="bg-green-300 p-2 py-5 text-xl rounded-3xl text-center">
+              {{ task.todo }}
+            </div>
           </div>
-        </li>
-      </ng-container>
-    </ul>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
