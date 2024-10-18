@@ -1,4 +1,4 @@
-export interface Task {
+export interface iTask {
       id:number,
       todo:string,
       completed:boolean,
