@@ -4,18 +4,18 @@
 >
   <article
     *ngFor="let user of allUsersAndTasks"
-    class="border flex flex-col items-start justify-between p-5"
+    class="border flex flex-col items-start justify-between p-5 bg-slate-300 gap-5"
   >
-    <div class="flex items-center">
+    <div class="flex items-center gap-5">
+      <img
+        [src]="user.image"
+        [alt]="user.id + ' image'"
+        class="max-h-[200px] lg:max-h-[150px] border rounded-full shadow-sm"
+      />
       <h2 class="flex gap-2 text-2xl">
         <span>{{ user.firstName }}</span
         ><span>{{ user.lastName }}</span>
       </h2>
-      <img
-        [src]="user.image"
-        [alt]="user.id + ' image'"
-        class="max-h-[200px] lg:max-h-[150px]"
-      />
     </div>
     <div>
       <ul
@@ -32,7 +32,12 @@
           {{ task.todo }} -
         </li>
       </ul>
-      <p *ngIf="!user.tasks || user.tasks.length === 0">No tasks available</p>
+      <p
+        *ngIf="!user.tasks || user.tasks.length === 0"
+        class="bg-black text-white p-2"
+      >
+        Fannullone
+      </p>
     </div>
   </article>
 </main>
