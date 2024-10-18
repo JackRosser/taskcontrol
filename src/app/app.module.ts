@@ -18,9 +18,8 @@ const routes: Route[] = [
   // non cambia assolutamente nulla a livello di funzionalità, è solo il nome
   {
     path: "",
-    //component: MainComponent
-    // component: CompletedComponent
-    component: UsersComponent
+    component: MainComponent
+
   },
   {
     path: "completed",

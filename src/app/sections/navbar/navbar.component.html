@@ -1,1 +1,20 @@
-<nav>navbar</nav>
+<nav class="flex justify-center items-center">
+  <ul class="flex w-full justify-evenly lg:justify-center lg:gap-[10rem]">
+    <li class="hover:text-white">
+      <a
+        routerLink="/"
+        routerLinkActive="text-white"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+    </li>
+    <li class="hover:text-white">
+      <a routerLink="completed" routerLinkActive="text-white"
+        >To Do Completed</a
+      >
+    </li>
+    <li class="hover:text-white">
+      <a routerLink="users" routerLinkActive="text-white">All To Do</a>
+    </li>
+  </ul>
+</nav>
