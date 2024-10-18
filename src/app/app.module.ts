@@ -11,13 +11,16 @@ import { FormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { NavbarComponent } from './sections/navbar/navbar.component';
 import { FooterComponent } from './sections/footer/footer.component';
+import { SearchComponent } from './pages/search/search.component';
 
 const routes: Route[] = [
+  // Michele qua ho fatto confusione con i path richiesti dal compito, ho invertito users con main
+  // non cambia assolutamente nulla a livello di funzionalità, è solo il nome
   {
     path: "",
-    component: MainComponent
+    //component: MainComponent
     // component: CompletedComponent
-    // component: UsersComponent
+    component: UsersComponent
   },
   {
     path: "completed",
@@ -36,7 +39,8 @@ const routes: Route[] = [
     CompletedComponent,
     UsersComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

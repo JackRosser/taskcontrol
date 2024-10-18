@@ -36,7 +36,7 @@ export class MainComponent {
             }
           });
         });
-        console.log('All users and tasks:', this.allUsersAndTasks);
+        this.allUsersAndTasks.sort((a, b) => a.firstName.localeCompare(b.firstName));
       });
     });
   }

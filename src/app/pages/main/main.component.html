@@ -4,13 +4,13 @@
 >
   <article
     *ngFor="let user of allUsersAndTasks"
-    class="border flex flex-col items-start justify-between p-5 bg-slate-300 gap-5"
+    class="border flex flex-col items-start justify-between p-5 bg-slate-300 gap-5 cursor-pointer opacity-80 hover:opacity-100"
   >
     <div class="flex items-center gap-5">
       <img
         [src]="user.image"
         [alt]="user.id + ' image'"
-        class="max-h-[200px] lg:max-h-[150px] border rounded-full shadow-sm"
+        class="max-h-[200px] lg:max-h-[150px] border rounded-full shadow-sm bg-slate-400"
       />
       <h2 class="flex gap-2 text-2xl">
         <span>{{ user.firstName }}</span
