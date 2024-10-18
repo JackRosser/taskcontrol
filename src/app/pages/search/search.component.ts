@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -9,9 +9,10 @@ export class SearchComponent {
 
   inputText: string = '';
 
+  @Output() datoRicercato = new EventEmitter<string>()
 
-  onSubmit() {
-    console.log('Input Text:', this.inputText);
-  }
+salvataggio() {
+  this.datoRicercato.emit(this.inputText)
+}
 
 }
