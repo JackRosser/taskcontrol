@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "azienda": "json-server azienda.json"
   },
   "private": true,
   "dependencies": {
