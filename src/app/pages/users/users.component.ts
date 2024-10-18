@@ -16,7 +16,7 @@ export class UsersComponent {
   allUsersAndTasks: iUnited[] = [];
   allUserAndTasksClone: iUnited[] = [];  // qua devo clonarlo per la ricerca, spero sia giusto, sto usando un metodo un po' cervellotico
   taskEseguito: boolean = false;
-
+  noResults: boolean = false;
 
   // qua uso trim per rimuovere eventuali spazi, poi gli dico di filtrare in lowercase.
   // se il dato non c'è torna all'array principale che ho clonato
@@ -28,6 +28,7 @@ export class UsersComponent {
       );
     } else {
       this.allUsersAndTasks = [...this.allUserAndTasksClone];
+      this.noResults = false;
     }
   }
 

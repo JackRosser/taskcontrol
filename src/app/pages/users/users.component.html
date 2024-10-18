@@ -1,7 +1,10 @@
-<main *ngIf="allUsersAndTasks.length > 0">
+<main>
   <section class="m-auto md:w-3/4 lg:w-1/2 p-5">
     <app-search (datoRicercato)="ricerca($event)"></app-search>
-    <ul class="flex flex-col p-5 gap-5 mt-5">
+    <ul
+      *ngIf="allUsersAndTasks.length > 0"
+      class="flex flex-col p-5 gap-5 mt-5"
+    >
       <!-- ng container è una chicca che ho scoperto la settimana scorsa, aiuta tantissimo quando hai
        ngIf e ngFor insieme, non viene renderizzata -->
       <ng-container *ngFor="let user of allUsersAndTasks">
@@ -26,6 +29,9 @@
           </div>
         </li>
       </ng-container>
+      <p *ngIf="noResults" class="text-center text-red-500">
+        Nessun risultato trovato
+      </p>
     </ul>
   </section>
 </main>
