@@ -1,1 +1,33 @@
-<p>completed works!</p>
+<main>
+  <section class="m-auto md:w-3/4 lg:w-1/2 p-5 flex flex-col items-center">
+    <h1 class="text-3xl">Incarichi Completati</h1>
+    <ul
+      *ngIf="allUsersAndTasks.length > 0"
+      class="flex flex-col p-5 gap-5 mt-5"
+    >
+      <ng-container *ngFor="let user of allUsersAndTasks">
+        <li
+          *ngIf="user.tasks && user.tasks.length > 0"
+          class="border p-2 bg-yellow-200"
+        >
+          <div>
+            <h2 class="text-xl mb-2">
+              {{ user.firstName }} {{ user.lastName }}
+            </h2>
+            <ul class="flex flex-col gap-2">
+              <li
+                *ngFor="let task of user.tasks"
+                [ngClass]="task.completed ? 'green' : 'hidden'"
+                class="border border-black"
+              >
+                <ng-container *ngIf="task.completed">
+                  {{ task.todo }}
+                </ng-container>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ng-container>
+    </ul>
+  </section>
+</main>
